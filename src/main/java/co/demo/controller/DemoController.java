@@ -45,7 +45,7 @@ public class DemoController {
         headers.add(Constants.OPERATION, "operation");
         headers.add(Constants.EXEC, execId);
         headers.add(Constants.MSG_TYPE, "request");
-        headers.add(Constants.AUTHORIZATION, Constants.BEARER + Objects.requireNonNull(getTD().getBody()).getToken());
+        headers.add(Constants.AUTHORIZATION, "authorization");//Constants.BEARER + Objects.requireNonNull(getTD().getBody()).getToken());
         var require = pqsClient.getPQS(headers, idType, idNumber);
         if (require.getStatusCode().is5xxServerError()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
